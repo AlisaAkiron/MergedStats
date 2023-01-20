@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "mergedstats",
+  "version": "${version}",
+  "name": "MergedStats",
+  "description": "Add some useful stats for scoreboard",
+  "authors": [
+    "Alisa"
+  ],
+  "contact": {
+    "website": "https://alisaqaq.moe",
+    "repo": "https://github.com/LiamSho/MergedStats"
+  },
+  "license": "MIT",
+  "icon": "assets/mergedstats/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "alisalab.mergedstats.MergedStats"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.13",
+    "fabric-api": "*",
+    "minecraft": "1.19.3",
+    "java": ">=17"
+  }
+}
