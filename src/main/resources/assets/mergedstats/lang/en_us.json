@@ -6,7 +6,7 @@
   "stat.mergedstats.ms_mined_ores_overworld": "[MS] Mined Ores (Overworld)",
   "stat.mergedstats.ms_mined_ores_nether": "[MS] Mined Ores (The Nether)",
   "stat.mergedstats.ms_play_time_minutes": "[MS] Time Played (Minutes)",
-  "stat.mergedstats.ms_travel_all_distance": "[MS] Distance Travelled",
+  "stat.mergedstats.ms_travel_all_distance": "[MS] Distance Travelled (M)",
   "stat.mergedstats.ms_travel_self_distance": "[MS] Distance Travelled by Self (M)",
   "stat.mergedstats.ms_travel_self_ground_distance": "[MS] Distance Travelled by Self on Ground (M)",
   "stat.mergedstats.ms_travel_self_water_distance": "[MS] Distance Travelled by Self in Water (M)",
