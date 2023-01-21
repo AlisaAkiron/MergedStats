@@ -1,4 +1,4 @@
-package alisalab.mergedstats;
+package moe.alisaqaq.mergedstats;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;

@@ -1,4 +1,4 @@
-package alisalab.mergedstats;
+package moe.alisaqaq.mergedstats;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.server.network.ServerPlayerEntity;

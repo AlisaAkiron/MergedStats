@@ -8,7 +8,6 @@
     "Alisa"
   ],
   "contact": {
-    "website": "https://alisaqaq.moe",
     "repo": "https://github.com/LiamSho/MergedStats"
   },
   "license": "MIT",
@@ -16,7 +15,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "alisalab.mergedstats.MergedStats"
+      "moe.alisaqaq.mergedstats.MergedStats"
     ]
   },
   "depends": {
