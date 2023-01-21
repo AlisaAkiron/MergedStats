@@ -27,6 +27,24 @@ public class CustomStats {
     public static final Identifier MINED_STONES_NETHER = new Identifier(MergedStats.MOD_ID, "ms_mined_stones_nether");
 
     /**
+     * Things in MINED_ORES_OVERWORLD and MINED_ORES_NETHER
+     * @see CustomStats#MINED_ORES_OVERWORLD
+     * @see CustomStats#MINED_ORES_NETHER
+     */
+    public static final Identifier MINED_ORES_TOTAL = new Identifier(MergedStats.MOD_ID, "ms_mined_ores_total");
+
+    /**
+     * Mined ores count in the overworld. Include: coal_ore, iron_ore, copper_ore, gold_ore, redstone_ore,
+     * emerald_ore, lapis_ore, diamond_ore and all above's deepslate variant
+     */
+    public static final Identifier MINED_ORES_OVERWORLD = new Identifier(MergedStats.MOD_ID, "ms_mined_ores_overworld");
+
+    /**
+     * Mined ores count in the nether. Include: nether_gold_ore, nether_quartz_ore, ancient_debris
+     */
+    public static final Identifier MINED_ORES_NETHER = new Identifier(MergedStats.MOD_ID, "ms_mined_ores_nether");
+
+    /**
      * Vanilla minecraft.custom:minecraft.play_time in minutes
      */
     public static final Identifier PLAY_TIME_MINUTES = new Identifier(MergedStats.MOD_ID, "ms_play_time_minutes");

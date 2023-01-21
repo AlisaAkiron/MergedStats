@@ -39,6 +39,9 @@ public final class StatsHelper {
                 + getMinedSmoothBasalt(handler)
                 + getMinedGlowstone(handler);
         var minedStonesTotal = minedStonesOverworld + minedStonesNether;
+        var minedOresOverworld = getMinedOresOverworld(handler);
+        var minedOresNether = getMinedOresNether(handler);
+        var minedOresTotal = minedOresOverworld + minedOresNether;
         var playTimeMinutes = getPlayTime(handler) / 20 / 60;
         var travelSelfGroundDistance = getWalkDistance(handler)
                 + getSprintDistance(handler);
@@ -58,6 +61,9 @@ public final class StatsHelper {
         updateStatValue(p, CustomStats.MINED_STONES_OVERWORLD, minedStonesOverworld);
         updateStatValue(p, CustomStats.MINED_STONES_NETHER, minedStonesNether);
         updateStatValue(p, CustomStats.MINED_STONES_TOTAL, minedStonesTotal);
+        updateStatValue(p, CustomStats.MINED_ORES_OVERWORLD, minedOresOverworld);
+        updateStatValue(p, CustomStats.MINED_ORES_NETHER, minedOresNether);
+        updateStatValue(p, CustomStats.MINED_ORES_TOTAL, minedOresTotal);
         updateStatValue(p, CustomStats.PLAY_TIME_MINUTES, playTimeMinutes);
         updateStatValue(p, CustomStats.TRAVEL_SELF_GROUND_DISTANCE, travelSelfGroundDistance);
         updateStatValue(p, CustomStats.TRAVEL_SELF_WATER_DISTANCE, travelSelfWaterDistance);
@@ -252,6 +258,41 @@ public final class StatsHelper {
      */
     public static int getMinedGlowstone(StatHandler handler) {
         return handler.getStat(Stats.MINED.getOrCreateStat(Blocks.GLOWSTONE));
+    }
+
+    /**
+     * Get mined ores in the overworld stats
+     * @param handler The stat handler of the player
+     * @return Stats count in Blocks
+     */
+    private static int getMinedOresOverworld(StatHandler handler) {
+        return handler.getStat(Stats.MINED.getOrCreateStat(Blocks.COAL_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.DEEPSLATE_COAL_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.IRON_BLOCK))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.DEEPSLATE_IRON_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.COPPER_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.DEEPSLATE_COPPER_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.GOLD_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.DEEPSLATE_GOLD_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.REDSTONE_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.DEEPSLATE_REDSTONE_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.EMERALD_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.DEEPSLATE_EMERALD_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.LAPIS_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.DEEPSLATE_LAPIS_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.DIAMOND_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.DEEPSLATE_DIAMOND_ORE));
+    }
+
+    /**
+     * Get mined ores in the nether stats
+     * @param handler The stat handler of the player
+     * @return Stats count in Blocks
+     */
+    private static int getMinedOresNether(StatHandler handler) {
+        return handler.getStat(Stats.MINED.getOrCreateStat(Blocks.NETHER_GOLD_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.NETHER_QUARTZ_ORE))
+                + handler.getStat(Stats.MINED.getOrCreateStat(Blocks.ANCIENT_DEBRIS));
     }
 
     /**

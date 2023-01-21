@@ -26,6 +26,9 @@ public class MergedStats implements ModInitializer {
         registerCustomStat(CustomStats.MINED_STONES_TOTAL);
         registerCustomStat(CustomStats.MINED_STONES_OVERWORLD);
         registerCustomStat(CustomStats.MINED_STONES_NETHER);
+        registerCustomStat(CustomStats.MINED_ORES_TOTAL);
+        registerCustomStat(CustomStats.MINED_ORES_OVERWORLD);
+        registerCustomStat(CustomStats.MINED_ORES_NETHER);
         registerCustomStat(CustomStats.PLAY_TIME_MINUTES);
         registerCustomStat(CustomStats.TRAVEL_ALL_DISTANCE);
         registerCustomStat(CustomStats.TRAVEL_SELF_DISTANCE);
