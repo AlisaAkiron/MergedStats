@@ -1,0 +1,68 @@
+name: Build
+
+on:
+  release:
+    types: [published]
+
+jobs:
+
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo checkout
+        uses: actions/checkout@v3
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: microsoft
+          java-version: 17
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+      - name: Execute Gradle build
+        run: ./gradlew build
+      - name: Find JAR
+        id: findjar
+        run: |
+          output="$(find build/libs/ ! -name "*-dev.jar" ! -name "*-sources.jar" -type f -printf "%f\n")"
+          echo "::set-output name=jarname::$output"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-libs
+          path: build/libs/${{ steps.findjar.outputs.jarname }}
+
+      - name: Upload to the GitHub release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+         upload_url: ${{ github.event.release.upload_url }}
+         asset_path: build/libs/${{ steps.findjar.outputs.jarname }}
+         asset_name: ${{ steps.findjar.outputs.jarname }}
+         asset_content_type: application/java-archive
+
+      - name: Upload to Modrinth
+        uses: RubixDev/modrinth-upload@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          file_path: build/libs/${{ steps.findjar.outputs.jarname }}
+          name: Release ${{ github.event.release.tag_name }}
+          version: ${{ github.event.release.tag_name }}
+          changelog: ${{ github.event.release.body }}
+          relations: fabric-api:required
+          game_versions: 1.19.3
+          release_type: release
+          loaders: fabric
+          featured: true
+          project_id: p0H2gbmT
+
+      - name: Upload to CurseForge
+        uses: itsmeow/curseforge-upload@v3
+        with:
+          file_path: build/libs/${{ steps.findjar.outputs.jarname }}
+          game_endpoint: minecraft
+          relations: fabric-api:requiredDependency
+          game_versions: Minecraft 1.19.3,Java 17,Fabric
+          project_id: 815224
+          token: ${{ secrets.CF_API_TOKEN }}
