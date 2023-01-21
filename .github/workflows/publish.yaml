@@ -1,4 +1,4 @@
-name: Build
+name: Publish
 
 on:
   release:
@@ -25,7 +25,6 @@ jobs:
         run: |
           output="$(find build/libs/ ! -name "*-dev.jar" ! -name "*-sources.jar" -type f -printf "%f\n")"
           echo "::set-output name=jarname::$output"
-
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -33,17 +32,15 @@ jobs:
           path: build/libs/${{ steps.findjar.outputs.jarname }}
 
       - name: Upload to the GitHub release
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: echapmanFromBunnings/upload-release-assets@1.2
         with:
-         upload_url: ${{ github.event.release.upload_url }}
-         asset_path: build/libs/${{ steps.findjar.outputs.jarname }}
-         asset_name: ${{ steps.findjar.outputs.jarname }}
-         asset_content_type: application/java-archive
+          releaseTag: ${{ github.event.release.tag_name }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          files: |
+            build/libs/${{ steps.findjar.outputs.jarname }}
 
       - name: Upload to Modrinth
-        uses: RubixDev/modrinth-upload@v1.0.0
+        uses: RubixDev/modrinth-upload@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           file_path: build/libs/${{ steps.findjar.outputs.jarname }}
