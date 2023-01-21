@@ -4,7 +4,7 @@ on: push
 
 jobs:
 
-  gradle:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Repo checkout
