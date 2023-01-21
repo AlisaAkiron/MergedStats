@@ -111,25 +111,29 @@ public final class StatsHelper {
     }
 
     private static int getSelfGroundDistance(StatHandler handler) {
-        return handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.WALK_ONE_CM))
-                + handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.SPRINT_ONE_CM));
+        return (handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.WALK_ONE_CM))
+                + handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.SPRINT_ONE_CM)))
+                / 100;
     }
 
     private static int getSelfWaterDistance(StatHandler handler) {
-        return handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.SWIM_ONE_CM))
+        return (handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.SWIM_ONE_CM))
                 + handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.WALK_ON_WATER_ONE_CM))
-                + handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.WALK_UNDER_WATER_ONE_CM));
+                + handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.WALK_UNDER_WATER_ONE_CM)))
+                / 100;
     }
 
     private static int getRideAnimalDistance(StatHandler handler) {
-        return handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.HORSE_ONE_CM))
+        return (handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.HORSE_ONE_CM))
                 + handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.PIG_ONE_CM))
-                + handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.STRIDER_ONE_CM));
+                + handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.STRIDER_ONE_CM)))
+                / 100;
     }
 
     private static int getRideTransportationDistance(StatHandler handler) {
-        return handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.AVIATE_ONE_CM))
+        return (handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.AVIATE_ONE_CM))
                 + handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.MINECART_ONE_CM))
-                + handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.BOAT_ONE_CM));
+                + handler.getStat(Stats.CUSTOM.getOrCreateStat(Stats.BOAT_ONE_CM)))
+                / 100;
     }
 }
