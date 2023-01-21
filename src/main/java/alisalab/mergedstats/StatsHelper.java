@@ -4,6 +4,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.StatHandler;
 import net.minecraft.stat.Stats;
+import net.minecraft.util.Identifier;
 
 /**
  * Helper class to do stats operation
@@ -54,17 +55,23 @@ public final class StatsHelper {
         var travelRideDistance = travelRideAnimalDistance + travelRideTransportationDistance;
         var travelAllDistance = travelSelfDistance + travelRideDistance;
 
-        handler.setStat(p, Stats.CUSTOM.getOrCreateStat(CustomStats.MINED_STONES_OVERWORLD), minedStonesOverworld);
-        handler.setStat(p, Stats.CUSTOM.getOrCreateStat(CustomStats.MINED_STONES_NETHER), minedStonesNether);
-        handler.setStat(p, Stats.CUSTOM.getOrCreateStat(CustomStats.MINED_STONES_TOTAL), minedStonesTotal);
-        handler.setStat(p, Stats.CUSTOM.getOrCreateStat(CustomStats.PLAY_TIME_MINUTES), playTimeMinutes);
-        handler.setStat(p, Stats.CUSTOM.getOrCreateStat(CustomStats.TRAVEL_SELF_GROUND_DISTANCE), travelSelfGroundDistance);
-        handler.setStat(p, Stats.CUSTOM.getOrCreateStat(CustomStats.TRAVEL_SELF_WATER_DISTANCE), travelSelfWaterDistance);
-        handler.setStat(p, Stats.CUSTOM.getOrCreateStat(CustomStats.TRAVEL_SELF_DISTANCE), travelSelfDistance);
-        handler.setStat(p, Stats.CUSTOM.getOrCreateStat(CustomStats.TRAVEL_RIDE_ANIMAL_DISTANCE), travelRideAnimalDistance);
-        handler.setStat(p, Stats.CUSTOM.getOrCreateStat(CustomStats.TRAVEL_RIDE_TRANSPORTATION_DISTANCE), travelRideTransportationDistance);
-        handler.setStat(p, Stats.CUSTOM.getOrCreateStat(CustomStats.TRAVEL_RIDE_DISTANCE), travelRideDistance);
-        handler.setStat(p, Stats.CUSTOM.getOrCreateStat(CustomStats.TRAVEL_ALL_DISTANCE), travelAllDistance);
+        updateStatValue(p, CustomStats.MINED_STONES_OVERWORLD, minedStonesOverworld);
+        updateStatValue(p, CustomStats.MINED_STONES_NETHER, minedStonesNether);
+        updateStatValue(p, CustomStats.MINED_STONES_TOTAL, minedStonesTotal);
+        updateStatValue(p, CustomStats.PLAY_TIME_MINUTES, playTimeMinutes);
+        updateStatValue(p, CustomStats.TRAVEL_SELF_GROUND_DISTANCE, travelSelfGroundDistance);
+        updateStatValue(p, CustomStats.TRAVEL_SELF_WATER_DISTANCE, travelSelfWaterDistance);
+        updateStatValue(p, CustomStats.TRAVEL_SELF_DISTANCE, travelSelfDistance);
+        updateStatValue(p, CustomStats.TRAVEL_RIDE_ANIMAL_DISTANCE, travelRideAnimalDistance);
+        updateStatValue(p, CustomStats.TRAVEL_RIDE_TRANSPORTATION_DISTANCE, travelRideTransportationDistance);
+        updateStatValue(p, CustomStats.TRAVEL_RIDE_DISTANCE, travelRideDistance);
+        updateStatValue(p, CustomStats.TRAVEL_ALL_DISTANCE, travelAllDistance);
+    }
+
+    private static void updateStatValue(ServerPlayerEntity p, Identifier identifier, int newValue) {
+        var oldValue = p.getStatHandler().getStat(Stats.CUSTOM.getOrCreateStat(identifier));
+        var increase = newValue - oldValue;
+        p.increaseStat(identifier, increase);
     }
 
     /**
