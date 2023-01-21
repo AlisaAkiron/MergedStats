@@ -1,4 +1,4 @@
-name: Publish
+name: Release
 
 on:
   release:
@@ -40,7 +40,7 @@ jobs:
             build/libs/${{ steps.findjar.outputs.jarname }}
 
       - name: Upload to Modrinth
-        uses: RubixDev/modrinth-upload@v1
+        uses: RubixDev/modrinth-upload@v1.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           file_path: build/libs/${{ steps.findjar.outputs.jarname }}
