@@ -1,0 +1,13 @@
+{
+  "stat.mergedstats.ms_mined_stones_total": "Mined Stones",
+  "stat.mergedstats.ms_mined_stones_overworld": "Mined Stones (Overworld)",
+  "stat.mergedstats.ms_mined_stones_nether": "Mined Stones (The Nether)",
+  "stat.mergedstats.ms_play_time_minutes": "Time Played (Minutes)",
+  "stat.mergedstats.ms_travel_all_distance": "Distance Travelled",
+  "stat.mergedstats.ms_travel_self_distance": "Distance Travelled by Self",
+  "stat.mergedstats.ms_travel_self_ground_distance": "Distance Travelled by Self on Ground",
+  "stat.mergedstats.ms_travel_self_water_distance": "Distance Travelled by Self in Water",
+  "stat.mergedstats.ms_travel_ride_distance": "Distance Travelled by Riding",
+  "stat.mergedstats.ms_travel_ride_animal_distance": "Distance Travelled by Riding Animals",
+  "stat.mergedstats.ms_travel_ride_transportation_distance": "Distance Travelled by Riding Transportations"
+}
