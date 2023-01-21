@@ -1,0 +1,16 @@
+{
+  "stat.mergedstats.ms_mined_stones_total": "[MS] 挖掘的石材",
+  "stat.mergedstats.ms_mined_stones_overworld": "[MS] 挖掘的石材 (主世界)",
+  "stat.mergedstats.ms_mined_stones_nether": "[MS] 挖掘的石材 (下届)",
+  "stat.mergedstats.ms_mined_ores_total": "[MS] 挖掘的矿石",
+  "stat.mergedstats.ms_mined_ores_overworld": "[MS] 挖掘的矿石 (主世界)",
+  "stat.mergedstats.ms_mined_ores_nether": "[MS] 挖掘的矿石 (下届)",
+  "stat.mergedstats.ms_play_time_minutes": "[MS] 已游玩时间 (分)",
+  "stat.mergedstats.ms_travel_all_distance": "[MS] 移动的距离 (M)",
+  "stat.mergedstats.ms_travel_self_distance": "[MS] 自身移动的距离 (M)",
+  "stat.mergedstats.ms_travel_self_ground_distance": "[MS] 自身在陆地移动的距离 (M)",
+  "stat.mergedstats.ms_travel_self_water_distance": "[MS] 自身在水中移动的距离 (M)",
+  "stat.mergedstats.ms_travel_ride_distance": "[MS] 骑行或驾驶移动的距离 (M)",
+  "stat.mergedstats.ms_travel_ride_animal_distance": "[MS] 骑行动物移动的距离 (M)",
+  "stat.mergedstats.ms_travel_ride_transportation_distance": "[MS] 驾驶交通工具移动的距离 (M)"
+}
