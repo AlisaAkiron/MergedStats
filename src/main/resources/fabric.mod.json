@@ -13,14 +13,14 @@
   },
   "license": "MIT",
   "icon": "assets/mergedstats/icon.png",
-  "environment": "server",
+  "environment": "*",
   "entrypoints": {
     "main": [
       "alisalab.mergedstats.MergedStats"
     ]
   },
   "depends": {
-    "fabricloader": ">=0.14.13",
+    "fabricloader": ">=0.14.12",
     "fabric-api": "*",
     "minecraft": "1.19.3",
     "java": ">=17"
