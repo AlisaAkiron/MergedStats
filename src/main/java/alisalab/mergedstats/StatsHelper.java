@@ -25,7 +25,6 @@ public final class StatsHelper {
                 + getMinedRedSandstone(handler)
                 + getMinedGranite(handler)
                 + getMinedDiorite(handler)
-                + getMinedDiorite(handler)
                 + getMinedAndesite(handler)
                 + getMinedCalcite(handler)
                 + getMinedTuff(handler);
