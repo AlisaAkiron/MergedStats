@@ -38,28 +38,3 @@ jobs:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           files: |
             build/libs/${{ steps.findjar.outputs.jarname }}
-
-      - name: Upload to Modrinth
-        uses: RubixDev/modrinth-upload@v1.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          file_path: build/libs/${{ steps.findjar.outputs.jarname }}
-          name: Release ${{ github.event.release.tag_name }}
-          version: ${{ github.event.release.tag_name }}
-          changelog: ${{ github.event.release.body }}
-          relations: fabric-api:required
-          game_versions: 1.19.3
-          release_type: release
-          loaders: fabric
-          featured: true
-          project_id: p0H2gbmT
-
-      - name: Upload to CurseForge
-        uses: itsmeow/curseforge-upload@v3
-        with:
-          file_path: build/libs/${{ steps.findjar.outputs.jarname }}
-          game_endpoint: minecraft
-          relations: fabric-api:requiredDependency
-          game_versions: Minecraft 1.19.3,Java 17,Fabric
-          project_id: 815224
-          token: ${{ secrets.CF_API_TOKEN }}
